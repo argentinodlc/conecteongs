@@ -1,38 +1,29 @@
 package com.conecteongs.conecteongs.persistence.model;
 
-import java.util.List;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @DiscriminatorValue("natural")
+@Getter
+@Setter
+@SuperBuilder
 public class NaturalPerson extends Donor {
 
+	@Column
     private String cpf;
 	
+	@Column
 	private String rg;
 
-	public NaturalPerson(Long id, User user, List<Donation> donations, List<RecurrentDonation> recurrentDonations, String cpf, String rg) {
-		super(id, user, donations, recurrentDonations);
+	public NaturalPerson(DonorBuilder<?, ?> b, String cpf, String rg) {
+		super(b);
 		this.cpf = cpf;
 		this.rg = rg;
 	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-
+	
 }

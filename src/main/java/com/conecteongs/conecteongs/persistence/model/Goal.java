@@ -18,9 +18,15 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
 @Table(name = "tb_goal")
+@Data
+@AllArgsConstructor
+@Builder
 public class Goal {
 	
     @Id
@@ -58,99 +64,5 @@ public class Goal {
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date endDate;
-    
- 	public Goal(Long id, List<Donation> donations, Gallery gallery, Campaign campaign, @NotBlank String title,
-			String description, BigDecimal goalAmount, BigDecimal currentAmount, Date startDate, Date endDate) {
-		this.id = id;
-		this.donations = donations;
-		this.gallery = gallery;
-		this.campaign = campaign;
-		this.title = title;
-		this.description = description;
-		this.goalAmount = goalAmount;
-		this.currentAmount = currentAmount;
-		this.startDate = startDate;
-		this.endDate = endDate;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public List<Donation> getDonations() {
-		return donations;
-	}
-
-	public void setDonations(List<Donation> donations) {
-		this.donations = donations;
-	}
-
-	public Gallery getGallery() {
-		return gallery;
-	}
-
-	public void setGallery(Gallery gallery) {
-		this.gallery = gallery;
-	}
-
-	public Campaign getCampaign() {
-		return campaign;
-	}
-
-	public void setCampaign(Campaign campaign) {
-		this.campaign = campaign;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public BigDecimal getGoalAmount() {
-		return goalAmount;
-	}
-
-	public void setGoalAmount(BigDecimal goalAmount) {
-		this.goalAmount = goalAmount;
-	}
-
-	public BigDecimal getCurrentAmount() {
-		return currentAmount;
-	}
-
-	public void setCurrentAmount(BigDecimal currentAmount) {
-		this.currentAmount = currentAmount;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
 
 }

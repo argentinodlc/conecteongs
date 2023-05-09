@@ -15,9 +15,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
 @Table(name = "tb_recurrent_donation")
+@Data
+@AllArgsConstructor
+@Builder
 public class RecurrentDonation {
 	
 	@Id
@@ -39,44 +45,5 @@ public class RecurrentDonation {
     
     @Column(name = "end_date", nullable = true)
     private Date endDate;
-
-	public RecurrentDonation(List<Donation> donations, Recurrence recurrence, Date startDate, Date endDate) {
-		this.donations = donations;
-		this.recurrence = recurrence;
-		this.startDate = startDate;
-		this.endDate = endDate;
-	}
-
-	public List<Donation> getDonations() {
-		return donations;
-	}
-
-	public void setDonations(List<Donation> donations) {
-		this.donations = donations;
-	}
-
-	public Recurrence getRecurrence() {
-		return recurrence;
-	}
-
-	public void setRecurrence(Recurrence recurrence) {
-		this.recurrence = recurrence;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
 
 }

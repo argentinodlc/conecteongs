@@ -14,9 +14,15 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
 @Table(name = "tb_ngo")
+@Data
+@AllArgsConstructor
+@Builder
 public class Ngo {
 	
 	@Id
@@ -42,64 +48,5 @@ public class Ngo {
     @NotBlank
     @Column(name = "description", nullable = false)
     private String description;
-
-	public Ngo(Long id, User user, @NotBlank String description, List<Area> areas, List<Campaign> campaigns,
-			List<Gallery> galleries, List<Donation> donations) {
-		this.id = id;
-		this.user = user;
-		this.description = description;
-		this.areas = areas;
-		this.campaigns = campaigns;
-		this.galleries = galleries;
-		this.donations = donations;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<Area> getAreas() {
-		return areas;
-	}
-
-	public void setAreas(List<Area> areas) {
-		this.areas = areas;
-	}
-
-	public List<Campaign> getCampaigns() {
-		return campaigns;
-	}
-
-	public void setCampaigns(List<Campaign> campaigns) {
-		this.campaigns = campaigns;
-	}
-
-	public List<Gallery> getGalleries() {
-		return galleries;
-	}
-
-	public void setGalleries(List<Gallery> galleries) {
-		this.galleries = galleries;
-	}
 
 }

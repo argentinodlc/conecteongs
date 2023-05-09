@@ -16,11 +16,17 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "tb_donor")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="person_type", discriminatorType = DiscriminatorType.STRING)
+@Data
+@AllArgsConstructor
+@SuperBuilder
 public class Donor {
 	
 	@Id
@@ -36,43 +42,4 @@ public class Donor {
     
     @OneToMany(mappedBy = "donor", fetch = FetchType.LAZY)
     private List<RecurrentDonation> recurrentDonations;
-
-	public Donor(Long id, User user, List<Donation> donations, List<RecurrentDonation> recurrentDonations) {
-		this.id = id;
-		this.user = user;
-		this.donations = donations;
-		this.recurrentDonations = recurrentDonations;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public List<Donation> getDonations() {
-		return donations;
-	}
-
-	public void setDonations(List<Donation> donations) {
-		this.donations = donations;
-	}
-
-	public List<RecurrentDonation> getRecurrentDonations() {
-		return recurrentDonations;
-	}
-
-	public void setRecurrentDonations(List<RecurrentDonation> recurrentDonations) {
-		this.recurrentDonations = recurrentDonations;
-	}
 }

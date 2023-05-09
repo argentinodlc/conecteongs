@@ -16,9 +16,15 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
 @Table(name = "tb_campaign")
+@Data
+@AllArgsConstructor
+@Builder
 public class Campaign {
 	
     @Id
@@ -51,82 +57,5 @@ public class Campaign {
 
     @Column(nullable = false)
     private BigDecimal currentAmount;
-
-	public Campaign(Long id, Ngo ngo, Gallery gallery, @NotBlank String title, @NotBlank String description,
-			Date startDate, Date endDate, BigDecimal currentAmount) {
-		this.id = id;
-		this.ngo = ngo;
-		this.gallery = gallery;
-		this.title = title;
-		this.description = description;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.currentAmount = currentAmount;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Ngo getNgo() {
-		return ngo;
-	}
-
-	public void setNgo(Ngo ngo) {
-		this.ngo = ngo;
-	}
-
-	public Gallery getGallery() {
-		return gallery;
-	}
-
-	public void setGallery(Gallery gallery) {
-		this.gallery = gallery;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	public BigDecimal getCurrentAmount() {
-		return currentAmount;
-	}
-
-	public void setCurrentAmount(BigDecimal currentAmount) {
-		this.currentAmount = currentAmount;
-	}
-
     
 }

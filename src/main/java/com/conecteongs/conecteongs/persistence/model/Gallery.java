@@ -13,9 +13,15 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
 @Table(name = "tb_gallery")
+@Data
+@AllArgsConstructor
+@Builder
 public class Gallery {
 
     @Id
@@ -36,53 +42,5 @@ public class Gallery {
     @ManyToOne
     @JoinColumn(name = "id_ngo")
     private Ngo ngo;
-
-	public Gallery(Long id, @NotBlank String name, @NotBlank String description, List<Image> images, Ngo ngo) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.images = images;
-		this.ngo = ngo;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<Image> getImages() {
-		return images;
-	}
-
-	public void setImages(List<Image> images) {
-		this.images = images;
-	}
-
-	public Ngo getNgo() {
-		return ngo;
-	}
-
-	public void setNgo(Ngo ngo) {
-		this.ngo = ngo;
-	}
 
 }

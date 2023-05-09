@@ -14,9 +14,15 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
 @Table(name = "tb_donation")
+@Data
+@AllArgsConstructor
+@Builder
 public class Donation {
     
     @Id
@@ -48,81 +54,5 @@ public class Donation {
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date donationDate;
-
-	public Donation(Long id, Ngo ngo, Donor donor, PaymentType paymentType, Goal goal,
-			RecurrentDonation recurrentDonation, BigDecimal value, Date donationDate) {
-		this.id = id;
-		this.ngo = ngo;
-		this.donor = donor;
-		this.paymentType = paymentType;
-		this.goal = goal;
-		this.recurrentDonation = recurrentDonation;
-		this.value = value;
-		this.donationDate = donationDate;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Ngo getNgo() {
-		return ngo;
-	}
-
-	public void setNgo(Ngo ngo) {
-		this.ngo = ngo;
-	}
-
-	public Donor getDonor() {
-		return donor;
-	}
-
-	public void setDonor(Donor donor) {
-		this.donor = donor;
-	}
-
-	public PaymentType getPaymentType() {
-		return paymentType;
-	}
-
-	public void setPaymentType(PaymentType paymentType) {
-		this.paymentType = paymentType;
-	}
-
-	public Goal getGoal() {
-		return goal;
-	}
-
-	public void setGoal(Goal goal) {
-		this.goal = goal;
-	}
-
-	public RecurrentDonation getRecurrentDonation() {
-		return recurrentDonation;
-	}
-
-	public void setRecurrentDonation(RecurrentDonation recurrentDonation) {
-		this.recurrentDonation = recurrentDonation;
-	}
-
-	public BigDecimal getValue() {
-		return value;
-	}
-
-	public void setValue(BigDecimal value) {
-		this.value = value;
-	}
-
-	public Date getDonationDate() {
-		return donationDate;
-	}
-
-	public void setDonationDate(Date donationDate) {
-		this.donationDate = donationDate;
-	}
 
 }

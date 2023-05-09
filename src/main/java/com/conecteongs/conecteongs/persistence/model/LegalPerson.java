@@ -1,37 +1,31 @@
 package com.conecteongs.conecteongs.persistence.model;
 
-import java.util.List;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @DiscriminatorValue("legal")
+@Getter
+@Setter
+@SuperBuilder
 public class LegalPerson extends Donor{
 	
+	@Column
 	private String cnpj;
 	
+	@Column
 	private String commercialName;
 
-	public LegalPerson(Long id, User user, List<Donation> donations, List<RecurrentDonation> recurrentDonations, String cnpj, String commercialName) {
-		super(id, user, donations, recurrentDonations);
+	public LegalPerson(DonorBuilder<?, ?> b, String cnpj, String commercialName) {
+		super(b);
 		this.cnpj = cnpj;
 		this.commercialName = commercialName;
 	}
 
-	public String getCnpj() {
-		return cnpj;
-	}
-
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
-
-	public String getCommercialName() {
-		return commercialName;
-	}
-
-	public void setCommercialName(String commercialName) {
-		this.commercialName = commercialName;
-	}
+	
+	
 }
