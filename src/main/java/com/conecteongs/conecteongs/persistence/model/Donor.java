@@ -18,6 +18,7 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -26,6 +27,7 @@ import lombok.experimental.SuperBuilder;
 @DiscriminatorColumn(name="person_type", discriminatorType = DiscriminatorType.STRING)
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @SuperBuilder
 public class Donor {
 	

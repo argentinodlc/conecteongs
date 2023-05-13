@@ -17,11 +17,13 @@ import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_donation")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Donation {
     

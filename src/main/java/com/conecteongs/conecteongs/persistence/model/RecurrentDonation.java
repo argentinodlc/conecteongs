@@ -18,11 +18,13 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_recurrent_donation")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class RecurrentDonation {
 	
